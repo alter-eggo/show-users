@@ -1,0 +1,69 @@
+
+$navItemColor: #989cb4
+$activeColor: #1c2546
+
+body,
+html
+  margin: 0
+  padding: 0
+  width: 100%
+  height: 100%
+  line-height: 1
+  overflow-y: auto
+
+body
+  display: flex
+  flex-direction: column
+  padding: 0 env(safe-area-inset-right, 0) 0 env(safe-area-inset-left, 0)
+
+#app
+  height: 100%
+  display: flex
+  flex-direction: column
+  font-family: "Cera Pro", Helvetica, Arial, sans-serif
+  font-variant-numeric: tabular-nums
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  color: var(--g-color-primary)
+  background-color: var(--g-color-secondary-dirty)
+  padding: 0 120px
+  overflow-x: hidden
+
+.app
+  font-family: Avenir, Helvetica, Arial, sans-serif
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  color: #2c3e50
+  margin-top: 60px
+  display: flex
+  flex-direction: column
+  height: 100%
+  overflow: hidden
+  &-nav
+    display: flex
+    justify-content: center
+    margin-bottom: 40px
+    border-bottom: 1px solid rgba(152, 156, 180, 1)
+    &__item
+      padding: 16px
+      text-decoration: none
+      color: $navItemColor
+      &.router-link-active
+        color: $activeColor
+
+  /* Анимации для страниц  */
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-leave-active,
+.slide-right-enter-active
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+
+.slide-left-enter,
+.slide-right-leave-active
+  opacity: 0
+  transform: translate(50px, 0)
+
+.slide-left-leave-active,
+.slide-right-enter
+  opacity: 0
+  transform: translate(-50px, 0)
