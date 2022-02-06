@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import HistoryTableComponent from "../../components/HistoryTableComponent.vue";
+import HistoryTableComponent from "../../components/CHistoryTable.vue";
 
 defineProps({
   historyEvents: Array,

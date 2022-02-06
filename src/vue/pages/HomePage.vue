@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref } from "vue";
-import ListElement from "../components/ListElement.vue";
-import FilterInput from "../components/FilterInput.vue";
+import CListElement from "../components/CListElement.vue";
+import CFilterInput from "../components/CFilterInput.vue";
 import { DynamicScroller } from "vue-virtual-scroller";
 import { debounce } from "@/base/async";
 import { filterAndSortUsersList, flatList } from "@/code/utils/user";
@@ -33,7 +33,7 @@ const favUsers = computed(() =>
 <template>
   <div class="home-page">
     <div class="home-page__users">
-      <FilterInput class="home-page__filter" @onChange="debouncedChange" />
+      <CFilterInput class="home-page__filter" @onChange="debouncedChange" />
 
       <div class="home-page__scroller" v-if="filteredUsers.length">
         <DynamicScroller
@@ -51,7 +51,7 @@ const favUsers = computed(() =>
               key-field="id"
               :size-dependencies="[item.name]"
             >
-              <ListElement
+              <CListElement
                 :user="item"
                 btnText="Add to favourite"
                 @onClick="$emit('addToFavs', item)"
@@ -68,7 +68,7 @@ const favUsers = computed(() =>
     <div class="home-page__users">
       <div class="home-page__users-fav-title">Fav users</div>
       <template v-if="favUsers.length">
-        <ListElement
+        <CListElement
           v-for="user in favUsers"
           :key="user.id"
           :user="user"
@@ -107,15 +107,10 @@ const favUsers = computed(() =>
       justify-content: center
 
   &__user
-    min-height: 30px
+    flex: 1
 
     &-child
       margin-left: 8px
-
-    &-children
-      margin-left: 16px
-
-
 
   &__scroller
     overflow: hidden

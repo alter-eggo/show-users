@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from "@vue/runtime-core";
-import HistoryTableComponent from "../../components/HistoryTableComponent.vue";
+import HistoryTableComponent from "../../components/CHistoryTable.vue";
 
 const props = defineProps({
   historyEvents: Array,

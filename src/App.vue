@@ -31,12 +31,10 @@ watch(() => route.value, handler);
 function handler(to, from) {
   const toIndex = pages.findIndex((page) => page.routeName === to.name);
   const fromIndex = pages.findIndex((page) => page.routeName === from.name);
-
   if (toIndex === -1 || fromIndex === -1) {
     transitionName.value = "fade";
     return;
   }
-
   transitionName.value = toIndex < fromIndex ? "slide-right" : "slide-left";
 }
 

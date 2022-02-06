@@ -43,13 +43,14 @@ export function filterAndSortUsersList(usersList, favIdsList, filterValue) {
 }
 
 export function flatList(usersList) {
-  return usersList.reduce((acc, item) => {
-    acc.push(item);
-    if (item.items) {
-      acc.push(...item.items);
-    }
-    return acc;
-  }, []);
+  return usersList
+    .reduce((acc, item) => {
+      acc.push(item);
+      if (item.items) {
+        acc.push(...item.items);
+      }
+      return acc;
+    }, [])
 }
 
 function sortUserList(userList, filterValue, reversedFilterValue) {

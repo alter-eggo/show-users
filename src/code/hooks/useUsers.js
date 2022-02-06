@@ -2,7 +2,7 @@ import axios from "axios";
 import { ref, onMounted, computed } from "vue";
 
 export function useUsers() {
-  const usersCount = 200;
+  const usersCount = 4000;
   const url = `https://randomuser.me/api/?results=${usersCount}&inc=name,id`;
   const getUsers = async () => await axios.get(url);
 
@@ -33,18 +33,6 @@ export function useUsers() {
 
         arr[arr.length - 1].items = [v];
       });
-
-    // rawUsersList.value = Object.freeze(
-    //   arr.map((v) => ({
-    //     id: v.id.value,
-    //     name: v.name.first,
-    //     items: v.items?.map((item) => ({
-    //       id: item.id.value,
-    //       name: item.name.first,
-    //       isChild: true,
-    //     })),
-    //   }))
-    // );
 
     rawUsersList.value = arr.map((v) => ({
       id: v.id.value,
